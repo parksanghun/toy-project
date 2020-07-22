@@ -14,9 +14,13 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r sangsang-webservice *
-  - mkdir -p deploy
-  - mv sangsang-webservice.zip deploy/sangsang-webservice.zip
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy *
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/sangsang-webservice.zip
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY

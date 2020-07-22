@@ -11,3 +11,5 @@ spring:
     include: oauth
   session:
     store-type: jdbc
+server:
+  port: 8080

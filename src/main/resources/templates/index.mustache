@@ -1,42 +1,73 @@
 {{>layout/header}}
 
-    <h1>퇴사 후 시작하는 토이 프로젝트</h1>
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/posts/save" role="button" class="btn btn-primary">글등록</a>
-                {{#userName}}
-                    Logged in as: <span id="user">{{userName}}</span>
-                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/userName}}
-                {{^userName}}
-                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-                {{/userName}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="chat_container">
+                <div class="job-box">
+                    <div class="job-box-filter">
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10">
+                                <h3>퇴사 후 시작하는 토이 프로젝트</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 text-right">
+                                <a href="/posts/save" role="button" class="btn btn-primary">글등록</a>
+                                {{#userName}}
+                                    Logged in as: <span id="user">{{userName}}</span>
+                                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                                {{/userName}}
+                                {{^userName}}
+                                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google
+                                        Login</a>
+                                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active"
+                                       role="button">Naver Login</a>
+                                {{/userName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <label>Show
+                                    <select name="datatable_length" class="form-control input-sm">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    entries</label>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="filter-search-box text-right">
+                                    <label>Search:<input type="search" class="form-control input-sm"
+                                                         placeholder=""></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inbox-message">
+                        <ul>
+                            {{#posts}}
+                                <li>
+                                    <a href="/posts/update/{{id}}">
+                                        <div class="message-avatar">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        </div>
+                                        <div class="message-body">
+                                            <div class="message-body-heading">
+                                                <h5>{{author}}</h5>
+                                                <span>{{modifiedDate}}</span>
+                                            </div>
+                                            <p>{{title}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            {{/posts}}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <br>
-        <!-- 목록 출력 영역-->
-        <table class="table table-horizontal table-bordered">
-            <thread class="thread-strong">
-                <tr>
-                    <th>게시글번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>최종수정일</th>
-                </tr>
-            </thread>
-            <tbody id="tbody">
-            {{#posts}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                    <td>{{author}}</td>
-                    <td>{{modifiedDate}}</td>
-                </tr>
-            {{/posts}}
-            </tbody>
-        </table>
     </div>
-
+</div>
 {{>layout/footer}}

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/deploy
-PROJECT_NAME=toy-project
+PROJECT_NAME=toyproject
 
 echo "> Build 파일 복사"
 

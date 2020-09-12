@@ -23,7 +23,7 @@ public class ProfileControllerTest {
   private TestRestTemplate restTemplate;
 
   @Test
-  public void profileÀº_ÀÎÁõ¾øÀÌ_È£ÃâµÈ´Ù() throws Exception {
+  public void profileì€_ì¸ì¦ì—†ì´_í˜¸ì¶œëœë‹¤() throws Exception {
     String expected = "default";
 
     ResponseEntity<String> response = restTemplate.getForEntity("/profile", String.class);

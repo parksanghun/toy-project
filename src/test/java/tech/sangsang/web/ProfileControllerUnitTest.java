@@ -43,7 +43,7 @@ public class ProfileControllerUnitTest {
   }
 
   @Test
-  public void active_profileÀÌ_¾øÀ¸¸é_default°¡_Á¶È¸µÈ´Ù() {
+  public void active_profileì´_ì—†ìœ¼ë©´_defaultê°€_ì¡°íšŒëœë‹¤() {
     // given
     String expectedProfile = "default";
     MockEnvironment env = new MockEnvironment();

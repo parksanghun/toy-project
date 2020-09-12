@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/deploy
-PROJECT_NAME=toyproject
+PROJECT_NAME=sangsang-webservice
 
 echo "> Build 파일 복사"
 
